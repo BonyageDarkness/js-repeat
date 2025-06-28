@@ -1,0 +1,18 @@
+.button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  background-color: #000000;
+  color: rgb(0, 113, 13);
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid rgb(0, 113, 13);
+  box-shadow: 0 4px 6px rgba(246, 255, 0, 0.1);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
