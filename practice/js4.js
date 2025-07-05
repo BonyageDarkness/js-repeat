@@ -344,11 +344,9 @@ const objA = {
   x: 1,
   y: 2,
 };
-
 const objB = {
   y: 3,
 };
-
 const result = {
   x: 5,
   ...objA,
