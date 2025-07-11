@@ -16,3 +16,9 @@
   font-size: 20px;
   transition: background-color 0.3s ease;
 }
+.button:hover {
+  background-color: aquamarine;
+}
+.button:focus {
+  background-color: #a8e1ff88;
+}
