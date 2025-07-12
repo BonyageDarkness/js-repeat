@@ -1,0 +1,22 @@
+.gallery {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery-item {
+  background-color: lightgray -76px -16.297px / 125.278% 150.297% no-repeat;
+}
+.gallery-item:hover {
+}
+.gallery-image {
+  display: block;
+}
+
+.modal {
+  width: 1112px;
+  height: 640px;
+  flex-shrink: 0;
+  background: lightgray -246.133px -4.929px / 127.08% 147.165% no-repeat;
+}
