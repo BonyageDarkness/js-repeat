@@ -2,24 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Js-repeat</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="/practice/js8.js" defer></script>
+    <title>Js Practice</title>
   </head>
   <body>
-    <h1>JavaScript Repeat</h1>
-    <a href="hw/hw1/hw1.html" class="button">HW1</a>
-    <a href="hw/hw2/hw2.html" class="button">HW2</a>
-    <a href="hw/hw3/hw3.html" class="button">HW3</a>
-    <a href="hw/hw4/hw4.html" class="button">HW4</a>
-    <a href="hw/hw5/hw5.html" class="button">HW5</a>
-    <a href="hw/hw6/hw6.html" class="button">HW6</a>
-    <a href="hw/hw7/src/src/index.html" class="button">HW7</a>
-    <a href="hw/hw8/index.html" class="button">HW8</a>
-    <a href="hw/hw9/hw9.html" class="button">HW9</a>
-    <a href="hw/hw10/hw10.html" class="button">HW10</a>
-    <a href="hw/hw11/hw11.html" class="button">HW11</a>
-    <a href="hw/hw12/hw12.html" class="button">HW12</a>
+    <div id="app"></div>
+    <script src="https://unpkg.com/validator@13.11.0/validator.min.js"></script>
+    <script type="module">
+      console.log(
+        "Is mango@mail.com a valid email?: ",
+        validator.isEmail("mango@mail.com")
+      );
+      console.log(
+        "Is Mangodogmail.com a valid email?: ",
+        validator.isEmail("Mangodogmail.com")
+      );
+    </script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
