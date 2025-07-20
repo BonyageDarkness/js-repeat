@@ -85,6 +85,7 @@ makeGreeting("Mango")
   .catch((error) => console.error(error));
 //
 //
+
 //value - значение, которое будет значением промисса.
 //delay - задержка в миллисекундах, после которой будет выполняться промес.
 // shouldResolve - булево значение, указывающее, должен ли промес выполниться
@@ -112,3 +113,6 @@ makePromise({ value: "B", delay: 3000 })
 makePromise({ value: "C", delay: 2000, shouldResolve: false })
   .then((value) => console.log(value))
   .catch((error) => console.log(error)); // "C"
+//
+//
+//
