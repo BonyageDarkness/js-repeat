@@ -128,3 +128,88 @@ function axiosRenderUsers(users) {
     .join("");
   axiosList.insertAdjacentHTML("beforeend", markup);
 }
+
+//////      async and await
+const foo = async () => {
+  console.log("Before await");
+
+  const promiseValue = await new Promise((resolve) => {
+    setTimeout(() => resolve(5), 2000);
+  });
+
+  console.log("After await", promiseValue);
+};
+
+foo(); // через 2 секунди виведеться в консоль  "After await" 5
+
+//////
+const fetchPosts1 = async () => {
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/posts?_limit=5"
+  );
+  console.log("Posts: ", response.data);
+};
+fetchPosts1();
+////  Наявный пример этого кода
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
+const fetchPostsBtn = document.querySelector(".async-btn");
+const postList = document.querySelector(".posts");
+
+// Контролирует номер группы
+let page = 1;
+// Контролирует количество элементов в группе
+let perPage = 10;
+// В нашем случае общее количество страниц подсчитывается на фронтенде
+const totalPages = Math.ceil(100 / perPage);
+
+fetchPostsBtn.addEventListener("click", async () => {
+  // Проверьте конец коллекции, чтобы вывести предупреждение
+  if (page > totalPages) {
+    return iziToast.error({
+      position: "topRight",
+      message: "We're sorry, there are no more posts to load",
+    });
+  }
+
+  try {
+    const posts = await fetchPosts();
+    renderPosts(posts);
+    // Увеличьте номер группы
+    page += 1;
+
+    // Замените текст кнопки после первого запроса
+    if (page > 1) {
+      fetchPostsBtn.textContent = "Fetch more posts";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+async function fetchPosts() {
+  const params = new URLSearchParams({
+    _limit: perPage,
+    _page: page,
+  });
+  // Здесь можно изменить количество элементов в группе
+  const response = await axios.get(
+    `https://jsonplaceholder.typicode.com/posts?${params}`
+  );
+  return response.data;
+}
+
+function renderPosts(posts) {
+  const markup = posts
+    .map(({ id, title, body, userId }) => {
+      return `<li>
+          <h2 class="post-title">${title.slice(0, 30)}</h2>
+          <p><b>Post id</b>: ${id}</p>
+          <p><b>Author id</b>: ${userId}</p>
+          <p class="post-body">${body}</p>
+        </li>`;
+    })
+    .join("");
+  postList.insertAdjacentHTML("beforeend", markup);
+}
